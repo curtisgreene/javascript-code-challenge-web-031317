@@ -3,7 +3,7 @@ class CommentList {
     this.comments = []
   }
   render() {
-    var items = this.comments.map(function(comment) {return comment.render()}).join("")
+    let items = this.comments.map( comment =>  (comment.render())).join("")
     return `<ul id="comment-ul">${items}</ul>`
   }
   addComment(string) {

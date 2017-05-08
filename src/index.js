@@ -1,15 +1,13 @@
 $(document).ready(function(){
-  var onPageComments = new CommentList
+  let onPageComments = new CommentList
+  const $input = $("#input")
   $("#note-form").submit(function(e) {
       e.preventDefault()
-      if (onPageComments.comments.length === 0 && $("#input").val() !== "") {
-        onPageComments.addComment($("#input").val())
-        $("#comment-list").append(onPageComments.render())
-      } else if ($("#input").val() !== "") {
-        var comment = new Comment($("#input").val())
-        $("#comment-ul").append(comment.render())
-      }
-      $("#input").val("")
+      if ( $input.val() !== "") {
+        onPageComments.addComment($input.val())
+        $("#comment-list").html(onPageComments.render())
+      } else {alert("Please make sure you have entered a comment!")}
+      $input.val("")
     });
 })
 
